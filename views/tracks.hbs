@@ -1,6 +1,11 @@
-{{#each tracks}}
-<ul>
-    <li>{{this.name}}</li>
-
-</ul>
-{{/each}}
+<section class="song-list">
+    <h1 class="title-main">TRACKS</h1>
+    {{#each tracks}}
+    <ul >
+        <div class="song-item">
+            <li class="song-name">{{this.name}}</li>
+            <audio controls src="{{this.preview_url}}"></audio>
+        </div>
+    </ul>
+    {{/each}}
+</section>
