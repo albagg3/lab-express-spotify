@@ -43,20 +43,22 @@ app.get("/artist-search", (req,res)=>{
 app.get("/albums/:artistsId", (req,res,next)=>{
     spotifyApi.getArtistAlbums(req.params.artistsId)
         .then((data)=>{
-            let selectedAlbum = [];
-            data.body.items.forEach((album)=>{
-                if(album.artists[0].id === req.params.artistsId)
-                {
-                    selectedAlbum.push(album);
-                }
-            })
-            return res.render("albums.hbs", {album: selectedAlbum});
+            // let selectedAlbum = [];
+            // data.body.items.forEach((album)=>{
+            //     if(album.artists[0].id === req.params.artistsId)
+            //     {
+            //         selectedAlbum.push(album);
+            //     }
+            // })
+            // return res.render("albums.hbs", {album: selectedAlbum});
+            const arrayOfAlbums = data.body.items
+            return res.render("albums.hbs", {arrayOfAlbums})
         })
 })
 
 
-app.get("/tracks/:trackId", (req,res)=>{
-    spotifyApi.getAlbumTracks(req.params.trackId)
+app.get("/tracks/:albumId", (req,res)=>{
+    spotifyApi.getAlbumTracks(req.params.albumId)
         .then((data)=>{
             console.log("TRACKS", data.body)
             const tracksArr = data.body.items

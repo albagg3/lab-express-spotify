@@ -1,7 +1,7 @@
 <section class="collection">
-    {{#each album }}
+    {{#each arrayOfAlbums }}
     <div class="card">
-        <img src="{{this.images.1.url}}" alt="album image">
+        <img src="{{this.images.1.url}}" alt="{{this.name}}">
         <div class="title-btn">
             <h3 class="title">{{ this.name }} </h3>
             <button class="red-btn"><a href="/tracks/{{this.id}}">View Tracks</a></button>

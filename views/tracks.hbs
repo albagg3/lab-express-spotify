@@ -4,7 +4,11 @@
     <ul >
         <div class="song-item">
             <li class="song-name">{{this.name}}</li>
-            <audio controls src="{{this.preview_url}}"></audio>
+            {{#if this.preview_url}}
+                <audio controls src="{{this.preview_url}}"></audio>
+            {{else}}
+                <p>Preview not available</p>
+            {{/if}}
         </div>
     </ul>
     {{/each}}
